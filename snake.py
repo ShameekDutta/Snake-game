@@ -16,6 +16,7 @@ ESC=27
 key=curses.KEY_RIGHT
 score=0
 b=0
+a=0
 lifes=5
 win.addch(food[0],food[1],"o")
 while key!=ESC:
@@ -46,28 +47,39 @@ while key!=ESC:
         del snake[0]
         snake.insert(0,(y,x))
         lifes-=1
-        if lifes==0: break
+        if lifes==0: 
+            a=2
+            break
     if x==0: 
         x=58
         del snake[0]
         snake.insert(0,(y,x))
         lifes-=1
-        if lifes==0: break
+        if lifes==0: 
+            a=2
+            break
     if x==59: 
         x=2
         del snake[0]
         snake.insert(0,(y,x))
         lifes-=1
-        if lifes==0: break
+        if lifes==0: 
+            a=2
+            break
     if y==19: 
         y=2
         del snake[0]
         snake.insert(0,(y,x))
         lifes-=1
-        if lifes==0: break
+        if lifes==0: 
+            a=2
+            break
 
     #checking if snake runs over itself
-    if snake[0] in snake[1:]: break
+    if key!=ESC:
+        if snake[0] in snake[1:]: 
+            a=1
+            break
     
     #bonus
     if bonus==():
@@ -105,3 +117,9 @@ while key!=ESC:
 curses.endwin()
 print(f"Score={score}")
 print(f"Bonuses collected={b}")
+if a==1:
+    print("Cause of death : Cannibalism")
+if a==2:
+    print("Cause of death : Border Infiltration")
+if key==ESC:
+    print("Cause of death : You got better things to do")
