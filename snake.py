@@ -83,7 +83,7 @@ while key!=ESC:
     
     #bonus
     if bonus==():
-        z=randint(1,80)
+        z=randint(1,120)
         if z==5:
             while bonus==():
                 bonus=(randint(1,18),randint(1,58))
