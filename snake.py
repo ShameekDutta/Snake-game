@@ -20,7 +20,7 @@ a=0
 lifes=5
 win.addch(food[0],food[1],"o")
 while key!=ESC:
-    win.addstr(0,2,"score "+str(score)+" ")
+    win.addstr(0,2,"Score "+str(score)+" ")
     win.addstr(0,48,"Bonus "+str(b)+" ")
     win.addstr(0,23,"Lifes "+str(lifes)+" ")
     win.timeout(100)
